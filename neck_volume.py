@@ -7,8 +7,12 @@ from matplotlib import pyplot as plt
 import cv2
 import funcs as fc
 import pandas as pd
+import paths as pa #import paths
 #################################################################################################################DEfine main paths
-path="images_path" #Define the images path
+#################################################################################################################DEfine main paths
+"""Read paths here"""
+
+images_path=pa.images_path #import image's folder path
 
 def def_paths(patient_id,path):#patient_id on string format
 

@@ -10,11 +10,16 @@ The input files are DICOM images stored in nested folders, organized by ID. Each
 The output is a dataframe with area/volume of each 3D DICOM image. The area is the cross section area of one CBCT slice. The volume corresponds to the volume of 5 CBCT slices. The neck area works with 3D registration (CBCT-CT), while the volume only works with alineation in the z axis. (It is just a prototype)
 The slices of interest are located around the centre of the submandibular gland in the z direction.
 
+The code also returns plots of each image processed. Before you run the code, you need to create the "plots_folder" that store the images.
+
 This project contains one module of functions funcs.py, that are imported in the neck_area.py and neck_volume.py. 
+
 
 To succesfully use the neck_area.py software you need to define the "images_path", the "plots_folder_path" and the "patients" file. The neck_volume.py requires the "images_path" and the ID of the folder to be examined, while funcs.py only requires the definition of the "plots_folder_path".
 
 The "images path" is the general path that contains all the nested folders. The "plots_folder_path" can be created arbitrarily. The "patients" file needs to contain the IDs of each radiotherapy treatment. 
+
+A paths file must contain the paths to the mentioned folders.
 
 
 

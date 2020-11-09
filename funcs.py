@@ -9,9 +9,16 @@ from scipy.interpolate import interp1d
 import pydicom
 import os
 from scipy.ndimage import zoom
+import paths as pa #import paths
+
+"""Read plots folder path here:"""
+
+
+plots_folder_path=pa.plots_folder #import plots folder path
 
 
 """The following functions were built by Aixa Andrade to draw the body contour of a DICOM image"""
+
 
 def DICOMImage_GrayScale(DICOM_image_pixel):
 
@@ -570,7 +577,7 @@ def plot_it(reg_metrics,v1_reg, v2_reg, roi_z, map_name, a_ratio):
     # print ('roi_slice', roi_slice)
     plt.plot(range(len(reg_metrics[0])), [roi_slice]*len(reg_metrics[0]), 'r-')
 
-    plots_folder="plots_folder_path" #Save the files in the plost folder
+    plots_folder=plots_folder_path #Save the files in the plost folder
     #plt.savefig(map_name)
     plt.savefig(plots_folder+map_name)
     plt.cla()
@@ -594,6 +601,7 @@ def register_CBCT_to_CT(CBCT_files_path, CT_files_path, roi_z, is_replan):
     cbct_ref_trans_matrix = Registration_FR(CBCT_files_path)
     map_name = 'images/%s_%s.png'%(CBCT_files_path[38:], CT_files_path[47:])
     map_name = map_name.replace('/','')
+    print(map_name)
     a_ratio = v1_pixel_spacing[2]/v1_pixel_spacing[1]
     if is_replan:
         ct_ref_trans_matrix = Registration_FR(CT_files_path)
@@ -868,7 +876,11 @@ def find_M1P1(CBCT_main_path):
 
             CBCT_list.append(el)
 
-    return(CBCT_list)  
+    return(CBCT_list)
+
+
+
+
 
 
 

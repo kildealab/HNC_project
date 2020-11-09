@@ -9,7 +9,13 @@ from matplotlib import pyplot as plt
 import cv2
 import funcs as fc
 import pandas as pd
+import paths as pa #import paths
 #################################################################################################################DEfine main paths
+"""Read paths here"""
+
+images_path=pa.images_path #import image's folder path
+plots_folder=pa.plots_folder #import plot's folder path
+ids_list=pa.ids_list
 
 
 def def_paths(patient_id,path):#patient_id on string format
@@ -124,7 +130,7 @@ def get_area(RT_path_FP1, RT_path_M1P1,RS_path_FP1,RS_path_M1P1,main_path):
         ###################################################################################
         #Now read image and calculate area
         CBCT_path_i=main_path+'/'+str(CBCT_files[i]) #Individual path of each CBCT
-        # print('CBCT_path_i:',CBCT_path_i)
+        print('CBCT_path_i:',CBCT_path_i)
         if plan_replan=='10':
             isocenter=isocenter_FP1
             RS_path=RS_path_FP1
@@ -189,7 +195,7 @@ def get_area(RT_path_FP1, RT_path_M1P1,RS_path_FP1,RS_path_M1P1,main_path):
         cnt_name = cnt_name.replace('/','')
         x_i,y_i = fc.format_contour(cont_i)
         plt.plot(x_i,y_i,'r')
-        plt.imshow(pixel_CBCT_i)
+        plt.imshow(pixel_CBCT_i, cmap='gray', vmin=0, vmax=255)
         plt.title(cnt_name)
     
         plt.savefig(plots_folder+cnt_name)
@@ -410,16 +416,18 @@ def format_patient_id_list(patients_file_name):
     #python does not read zeros on the left, also, it does not identify the elemnts as strings
  
     patient_id_list=pd.read_csv(patients_file_name)
-    patient_id_list=put_zeros_left(patient_id_list,'PatientId')    
+    #patient_id_list=put_zeros_left(patient_id_list,'PatientId')    
     patient_id_list=patient_id_list['PatientId'].values.tolist()
     patient_id_list=[str(i) for i in patient_id_list]  
 
     return(patient_id_list)
 
+
+
 def main():
-    path="images_path" #Define the images path
-    plots_folder="plots_folder_path" #Define the plots folder path
-    patients=format_patient_id_list("patients") #insert a csv file with a column of "PatientId"
+    path=images_path #Define the images path
+   
+    patients=format_patient_id_list(ids_list) #insert a csv file with a column of "PatientId"
 #    patients.remove(patient_id) #If you want to remove a patient_id from the list
     get_areas_all_patients(patients,path)
 
