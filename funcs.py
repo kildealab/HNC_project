@@ -352,8 +352,12 @@ def get_cts(CT_files_path):
     CT_files = [os.path.join(CT_files_path, f) for f in os.listdir(CT_files_path)]
     slices = {}
     ds = None
+    image_position = None
     for ct_file in CT_files:
         ds = pydicom.read_file(ct_file)
+
+        #print(ct_file)
+        
 
         # Check to see if it is an image file.
         # print ds.SOPClassUID
@@ -362,6 +366,11 @@ def get_cts(CT_files_path):
             # Add the image to the slices dictionary based on its z coordinate position.
             #
             slices[ds.ImagePositionPatient[2]] = ds.pixel_array
+
+            image_position = ds.ImagePositionPatient
+            # The pixel spacing or planar resolution in the x and y directions.
+            ct_pixel_spacing = ds.PixelSpacing
+
         else:
             pass
 
@@ -369,7 +378,9 @@ def get_cts(CT_files_path):
     # the first pixel. The slices are randomly accessed so we don't know which one
     # we have after looping through the CT slice so we will set the z position after
     # sorting the z coordinates below.
-    image_position = ds.ImagePositionPatient
+
+    
+    #image_position = ds.ImagePositionPatient
     # print 'CT', image_position
     # Construct the z coordinate array from the image index.
     z = slices.keys()
@@ -378,8 +389,7 @@ def get_cts(CT_files_path):
 
     image_position[2] = ct_z[0]
 
-    # The pixel spacing or planar resolution in the x and y directions.
-    ct_pixel_spacing = ds.PixelSpacing
+    
 
     # Verify z dimension spacing
     b = ct_z[1:] - ct_z[0:-1]

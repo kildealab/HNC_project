@@ -62,7 +62,29 @@ def get_ROIName_subglands(RS_path):
         if item.ROIName.find('Sub')!=-1:
             sub_glands_ROIName.append(item.ROIName)
 
-    return sub_glands_ROIName   
+    return sub_glands_ROIName  
+
+def find_right_index_submand(sub_glands_ROIName):
+
+    """Sometimes there are 4 structures for the submandibular glands:
+        Example: SubmndSalv_R, SubmndSalv_L, SubmndSalv_R_NOS and SubmndSalv_L_NOS
+        "NOS" do not have contours. This is a very special case but it can crash the code if not implemented"""
+
+    index_N=[]
+    for i in range(len(sub_glands_ROIName)):
+
+        str_number=fc.find(sub_glands_ROIName[i],"N")
+
+        if not str_number:
+    
+            index_N.append("good_structure") #The one without NOS
+        else:
+            index_N.append("weird_structure") #The one with NOS"
+
+    return index_N.index("good_structure")
+
+
+
      
 
 
@@ -143,10 +165,11 @@ def get_area(RT_path_FP1, RT_path_M1P1,RS_path_FP1,RS_path_M1P1,main_path):
         CT_path = os.path.split(RS_path)[0]
         # print('>>> CT_path', CT_path)
         sub_glands_ROIName=get_ROIName_subglands(RS_path) #get the suuuuuuubmandibular glands ROI name  
+        ind_sub=find_right_index_submand(sub_glands_ROIName)
         # print ('>> isocenter is :', isocenter)
         # map_name = '%s_%s.png'%(CBCT_path_i[38:], CT_path[47:])
         # map_name = map_name.replace('/','')
-        all_contours_ROI = fc.get_contour_structure(sub_glands_ROIName[0], RS_path)
+        all_contours_ROI = fc.get_contour_structure(sub_glands_ROIName[ind_sub], RS_path)
         z_smg = np.mean([float(roi[2]) for roi in all_contours_ROI])
         # print(map_name)
 
@@ -285,10 +308,11 @@ def get_area_no_replan(RT_path_FP1,RS_path_FP1,main_path):
         CT_path = os.path.split(RS_path)[0]
         # print('>>> CT_path', CT_path)
         sub_glands_ROIName=get_ROIName_subglands(RS_path) #get the suuuuuuubmandibular glands ROI name  
+        ind_sub=find_right_index_submand(sub_glands_ROIName)
         # print ('>> isocenter is :', isocenter)
         # map_name = '%s_%s.png'%(CBCT_path_i[38:], CT_path[47:])
         # map_name = map_name.replace('/','')
-        all_contours_ROI = fc.get_contour_structure(sub_glands_ROIName[0], RS_path)
+        all_contours_ROI = fc.get_contour_structure(sub_glands_ROIName[ind_sub], RS_path)
         z_smg = np.mean([float(roi[2]) for roi in all_contours_ROI])
         # print(map_name)
 

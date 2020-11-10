@@ -7,6 +7,7 @@ ID/
 plots/
 __pycache__/
 past_output_df/
+Other_scripts/
 not_important_script.py
 paths.py
 dataframe_area_loss
