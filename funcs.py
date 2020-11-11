@@ -454,12 +454,18 @@ def register_3d_volumes(vol1_array, ds_x,ds_y,ds_z, vol2_array, ct_x,ct_y,ct_z, 
     for FP1 these values are zero (meaning that CT is FP1) for M1P1.
 
     '''
+    print(cbct_ref_trans_matrix)
+
+    print(ct_ref_trans_matrix)
+
     cbct_t_x = cbct_ref_trans_matrix[3]
     cbct_t_y = cbct_ref_trans_matrix[7]
     cbct_t_z = cbct_ref_trans_matrix[11]
     ct_t_x = ct_ref_trans_matrix[3]
     ct_t_y = ct_ref_trans_matrix[7]
     ct_t_z = ct_ref_trans_matrix[11]
+
+    print("worked fine")
     '''
     ds_x, ds_y, ds_z are coordinate sytems of the CBCT images.
     Following is fixing the shift for registration between CBCT and correspoinding ct
@@ -609,14 +615,22 @@ def register_CBCT_to_CT(CBCT_files_path, CT_files_path, roi_z, is_replan):
     vol1_array, v1_x,v1_y,v1_z, v1_pixel_spacing = get_cts(CBCT_files_path)
     vol2_array, v2_x,v2_y,v2_z, v2_pixel_spacing = get_cts(CT_files_path)
     cbct_ref_trans_matrix = Registration_FR(CBCT_files_path)
+
+    print(cbct_ref_trans_matrix)
     map_name = 'images/%s_%s.png'%(CBCT_files_path[38:], CT_files_path[47:])
     map_name = map_name.replace('/','')
     print(map_name)
     a_ratio = v1_pixel_spacing[2]/v1_pixel_spacing[1]
-    if is_replan:
-        ct_ref_trans_matrix = Registration_FR(CT_files_path)
-    else:
-        ct_ref_trans_matrix = [0]*len(cbct_ref_trans_matrix)  
+    # if is_replan:
+    #     print("CT_files_path",CT_files_path)
+    #     ct_ref_trans_matrix = Registration_FR(CT_files_path)
+    # else:
+    #     ct_ref_trans_matrix = [0]*len(cbct_ref_trans_matrix) 
+
+    #If we dont register ct1 to ct2: 
+
+    ct_ref_trans_matrix = [0]*len(cbct_ref_trans_matrix)  
+
         # print('ct_ref_trans_matrix >>>', ct_ref_trans_matrix)
     v1_reg, v2_reg, reg_metrics = register_3d_volumes(vol1_array, v1_x,v1_y,v1_z, 
             vol2_array, v2_x,v2_y,v2_z, cbct_ref_trans_matrix, ct_ref_trans_matrix)
