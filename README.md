@@ -8,7 +8,6 @@ The head and neck region, including tumorous volumes within it, is not anatomica
 
 The ultimate goal of this project is to predict when a HNC patient would require replanning or if they would not require radiotherapy replanning, at the early stages of the treatment so that there are no last minute changes and the treament follows a planned procedure.
 
-## Work done
 
 
 ## Folders
@@ -20,7 +19,3 @@ The ultimate goal of this project is to predict when a HNC patient would require
 * [PTV_body_distance-main](/HNC_project/PTV_body_distance-main/) : This folder contains scripts to calculate and analyse the minimum distance between the PTV and the body.
 
 * [ Data Analysis and Machine Learning ](/HNC_project/Data_Analysis_and_Machine_Learning/) : This folder contains python code used to combine, analyse and visualise HNC patient data. It also contains machine learning code used to predict whether patients would require radiotherapy replanning or not.
-
-## Future Work
-
-## Contributors
