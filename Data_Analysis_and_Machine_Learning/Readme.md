@@ -28,3 +28,5 @@
 * Here I used 3 regression models but the results were not good because right now we only have data of 31 replanned patients which do not have any strong trend.
 * But this script can be used when we have more data or stronger influential factors.
 <hr>
+
+* [This](https://github.com/Srishti013/HNC_project/blob/Srishti/Data_Analysis_and_Machine_Learning/FMT.pptx) presentation can be used to understand more about the project and the work done.
