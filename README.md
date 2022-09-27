@@ -12,10 +12,10 @@ The ultimate goal of this project is to predict when a HNC patient would require
 
 ## Folders
 
-* [Spactial-feature extractor](/HNC_project/head-and-neck_spatial-feature_extractor-main/) : Code to extract spatial features from CT and CBCT images of head and neck cancer patients.
+* [Spactial-feature extractor](https://github.com/Srishti013/HNC_project/tree/Srishti/head-and-neck_spatial-feature_extractor-main) : Code to extract spatial features from CT and CBCT images of head and neck cancer patients.
 
-* [ Neck-area calculation](/HNC_project/Neck_area_calculation/) : Code was written to calculate the area/volume of a region of the neck using DICOM files from a Radiotherapy treatment
+* [ Neck-area calculation](https://github.com/Srishti013/HNC_project/tree/Srishti/Neck_area_calculation) : Code was written to calculate the area/volume of a region of the neck using DICOM files from a Radiotherapy treatment
 
-* [PTV_body_distance-main](/HNC_project/PTV_body_distance-main/) : This folder contains scripts to calculate and analyse the minimum distance between the PTV and the body.
+* [PTV_body_distance-main](https://github.com/Srishti013/HNC_project/tree/Srishti/PTV_body_distance-main) : This folder contains scripts to calculate and analyse the minimum distance between the PTV and the body.
 
 * [ Data Analysis and Machine Learning ](https://github.com/Srishti013/HNC_project/tree/Srishti/Data_Analysis_and_Machine_Learning) : This folder contains python code used to combine, analyse and visualise HNC patient data. It also contains machine learning code used to predict whether patients would require radiotherapy replanning or not.
