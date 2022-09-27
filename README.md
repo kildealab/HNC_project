@@ -10,11 +10,14 @@ The ultimate goal of this project is to predict when a HNC patient would require
 
 ## Dataset
 
-The current dataset being used is present [here](https://github.com/Srishti013/HNC_project/blob/Srishti/Data_Analysis_and_Machine_Learning/master.csv)
+* The current dataset being used is present [here](https://github.com/Srishti013/HNC_project/blob/Srishti/Datafiles/master.csv).
+* It has data of 59 patients consisting of information about the changes in there body after each fraction, demographic information and information on their replanning.
+* [Index File](https://github.com/Srishti013/HNC_project/blob/Srishti/Datafiles/Index_Sheet%20-%20Index_Sheet.csv) : This file explains the types of data used.
 
 
 
-## Folders
+
+## Scripts
 
 * [Spactial-feature extractor](https://github.com/Srishti013/HNC_project/tree/Srishti/head-and-neck_spatial-feature_extractor-main) : Code to extract spatial features from CT and CBCT images of head and neck cancer patients.
 
