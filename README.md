@@ -8,6 +8,10 @@ The head and neck region, including tumorous volumes within it, is not anatomica
 
 The ultimate goal of this project is to predict when a HNC patient would require replanning or if they would not require radiotherapy replanning, at the early stages of the treatment so that there are no last minute changes and the treament follows a planned procedure.
 
+## Dataset
+
+The current dataset being used is present [here](https://github.com/Srishti013/HNC_project/blob/Srishti/Data_Analysis_and_Machine_Learning/master.csv)
+
 
 
 ## Folders
