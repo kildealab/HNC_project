@@ -23,7 +23,7 @@
 * The best accuracy score was 0.778 by extra trees classifier.
 <hr>
 
-### [Regression](https://github.com/Srishti013/HNC_project/blob/Srishti/Data_Analysis_and_Machine_Learning/Regression.ipynb)
+### [Regression](https://github.com/Srishti013/HNC_project/blob/Srishti/Data_Analysis_and_Machine_Learning/regression.py)
 * This script involves preprocessing the data for regression model
 * Here I used 3 regression models but the results were not good because right now we only have data of 31 replanned patients which do not have any strong trend.
 * But this script can be used when we have more data or stronger influential factors.
