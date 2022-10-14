@@ -1,0 +1,11 @@
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\obj\x64\Debug\PatientDataExtractor.csproj.CoreCompileInputs.cache
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\PatientDataExtractor.exe
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\PatientDataExtractor.pdb
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\VMS.TPS.Common.Model.API.dll
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\VMS.TPS.Common.Model.Types.dll
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\VMS.TPS.Common.Model.API.xml
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\bin\debug\VMS.TPS.Common.Model.Types.xml
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\obj\x64\Debug\PatientDataExtractor.csproj.CopyComplete
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\obj\x64\Debug\PatientDataExtractor.exe
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\obj\x64\Debug\PatientDataExtractor.pdb
+C:\Users\MAJA6041\Documents\Eclipse Scripting API\Projects\PatientDataExtractor\obj\x64\Debug\PatientDataExtractor.csproj.AssemblyReference.cache
