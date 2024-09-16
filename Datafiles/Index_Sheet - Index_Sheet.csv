@@ -1,0 +1,30 @@
+Parameter name,Description
+00_reference:R-vs-NR,Information on whether patient was replanned or not
+00_reference:R-fractions,Should have been replanned
+xmin,"Distances between each PTV contour point to each body contour points are calculated and the minimum is found.
+This value is calculated for each fraction of one patient."
+xmin_slope,Rate of change of xmin over time (fractions).
+xmin_resultant-vector,"Vector associated for each calculated x_min is summed across all available fractions for one patient.
+Each resultant vector has a given cartesian (x, y, z) and spherical coordinates (ρ, θ, φ)."
+xmin_line-segments_CoM,"The line segments associated for each calculated x_min per fraction are plotted on the same space.
+The center of mass (CoM) is a point (x, y, z) corresponding to the average values of the line segment points in each axis.
+This distance from the CoM to the farthest line segment point is considered to be the radius of the bounding sphere that contains all line segment points."
+xmin_line-segments_limits,"The line segments associated for each calculated x_min per fraction is plotted on the same space.
+The maximum and minimum values in the x, y, and z axis were determined to obtain two ""limit"" points: (min_x, min_y, min_z) and (max_x, max_y, max_z).
+The midpoint of these two limit points serve as the center of the bounding sphere that contains all line segments, while the distance between them is the diameter of the sphere."
+xmed,Calculation is similar to xmin but using the median distance instead.
+xmed_slope,Rate of change of xmed over time (fractions).
+xave,Calculation is similar to xmin but using the average distance instead.
+xave_slope,Rate of change of xave over time (fractions).
+volume_body,Volume of the body from the CT-sim and CBCT images.
+volume_body_slope,Rate of change of volume_body over time.
+volume_outer-PTV,Volume of the PTV outside of the skin.
+volume_outer-PTV_slope,Rate of change of volume_outer-PTV over time.
+volume-ratio_inner-PTV,The volume of the inner PTV divided by the volume of the body structure.
+volume-ratio_inner-PTV_slope,Rate of change of volume-ratio_inner-PTV over time.
+volume-ratio_outer-PTV,The volume of the outer PTV divided by the volume of the body structure.
+volume-ratio_outer-PTV_slope,Rate of change of volume-ratio_outer-PTV over time.
+demographics,Sex and age at the start of treatment.
+treatment-info,"Information regarding the patient's disease and treatment: cancer type, total prescribed dose, dose per fraction, cancer stage info, chemotherapy."
+weights,Initial and final weight of patient along with weight at each fraction relative to the initial value.
+area_neck,Area of the patient's neck region over time.

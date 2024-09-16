@@ -1,44 +1,28 @@
-# HNC project
+# Head-Neck Cancer Project
 
-This code was written to calculate the area/volume of a region of the neck using DICOM files from a Radiotherapy treatment. This code was created as part of Aixa Andrade's Master thesis project to graduate from McGill University: "Exploration of potential parameters that influence when to replan Head and Neck Cancer patients during Radiotherapy". Hossein Naseri helped Aixa Andrade with the implementation of 3D Registration between CBCT and CT. The supervisor of Aixa Andrade is John Kildea.  
+## Background
 
-The input files are DICOM images stored in nested folders, organized by ID. Each ID folder should have the following information (this can be modified according to your own purposes but the code is structureD to read certain format): 
+The head and neck region, including tumorous volumes within it, is not anatomically rigid, but is very radiosensitive. This means that its 3D shape is in constant flux during radiotherapy, and is impacted by tumour shrinkage, inflammation, weight loss, and changes that affect the patient’s muscle density, fat distribution, edema, and fluid accumulation. Indeed, HNC patients who undergo radiotherapy often experience treatment-related toxicities that result in anatomical changes. These anatomical changes in turn can render the treatment plan invalid, requiring replanning, which if performed ad hoc, as is currently the case, can be disruptive for the treatment planning team. Therefore, in this research project we are investigating if we can predict if and when a head and neck cancer patient requires replanning using an AI algorithm.
 
-1. CBCT folders named as CBCT_ID_Plan_Replan_FractionNumberPlan_FractionNumberCourse. In each CBCT folder, there must be a DICOM Registration file (RE). 
-2. A folder with each RP and RS DICOM file.
+## Goals
 
-The output is a dataframe with area/volume of each 3D DICOM image. The area is the cross section area of one CBCT slice. The volume corresponds to the volume of 5 CBCT slices. The neck area works with 3D registration (CBCT-CT), while the volume only works with alineation in the z axis. (It is just a prototype)
-The slices of interest are located around the centre of the submandibular gland in the z direction.
+The ultimate goal of this project is to predict when a HNC patient would require replanning or if they would not require radiotherapy replanning, at the early stages of the treatment so that there are no last minute changes and the treament follows a planned procedure.
 
-The code also returns plots of each image processed. Before you run the code, you need to create the "plots_folder" that store the images.
+## Dataset
 
-This project contains one module of functions funcs.py, that are imported in the neck_area.py and neck_volume.py. 
-
-
-To succesfully use the neck_area.py software you need to define the "images_path", the "plots_folder_path" and the "patients" file. The neck_volume.py requires the "images_path" and the ID of the folder to be examined, while funcs.py only requires the definition of the "plots_folder_path".
-
-The "images path" is the general path that contains all the nested folders. The "plots_folder_path" can be created arbitrarily. The "patients" file needs to contain the IDs of each radiotherapy treatment. 
-
-A paths file must contain the paths to the mentioned folders.
+* The current dataset being used is present [here](https://github.com/Srishti013/HNC_project/blob/Srishti/Datafiles/master.csv).
+* It has data of 59 patients consisting of information about the changes in there body after each fraction, demographic information and information on their replanning.
+* [Index File](https://github.com/Srishti013/HNC_project/blob/Srishti/Datafiles/Index_Sheet%20-%20Index_Sheet.csv) : This file explains the types of data used.
 
 
 
-References:
 
-Chloe, Litrico; John, Kildea; Haley, Patrick. 2018. Radiomics for Prostate Cancer: https://www.authorea.com/users/232204/articles/296788-radiomics-for-prostate-cancer
+## Scripts
 
+* [Spactial-feature extractor](https://github.com/Srishti013/HNC_project/tree/Srishti/head-and-neck_spatial-feature_extractor-main) : Code to extract spatial features from CT and CBCT images of head and neck cancer patients.
 
-DICOM INNOLITICS: https://dicom.innolitics.com/ciods
+* [ Neck-area calculation](https://github.com/Srishti013/HNC_project/tree/Srishti/Neck_area_calculation) : Code was written to calculate the area/volume of a region of the neck using DICOM files from a Radiotherapy treatment
 
-DICOM STANDARD: https://www.dicomstandard.org/current
+* [PTV_body_distance-main](https://github.com/Srishti013/HNC_project/tree/Srishti/PTV_body_distance-main) : This folder contains scripts to calculate and analyse the minimum distance between the PTV and the body.
 
-OpenCV: https://opencv.org/about/
-
-OS: https://docs.python.org/3/library/os.html
-
-PyDICOM: https://pydicom.github.io/
-
-SCIPY: https://www.scipy.org/docs.html
-
-
-Stackoverflow: https://stackoverflow.com/questions
+* [ Data Analysis and Machine Learning ](https://github.com/Srishti013/HNC_project/tree/Srishti/Data_Analysis_and_Machine_Learning) : This folder contains python code used to combine, analyse and visualise HNC patient data. It also contains machine learning code used to predict whether patients would require radiotherapy replanning or not.
